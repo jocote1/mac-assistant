@@ -1,14 +1,7 @@
-"""
-ai_pipeline.py - Unified OpenAI Client, STT Transcriptions, and Two-Step Deterministic Slot-Filling.
+"""Transcription, conversation, request planning, and inbox summaries.
 
-Features:
-- Single OpenAI client initialized with OPENAI_API_KEY and OPENAI_BASE_URL.
-- STT with gpt-4o-mini-transcribe via client.audio.transcriptions.create.
-- LLM Router & Slot Filler with GPT-5 nano and minimal reasoning.
-- Two-Step Deterministic Slot Filling:
-    Step A: Intent Classification
-    Step B: Dedicated Pydantic Schema Slot-Filling with Natural Language Conflict Detection.
-- Full execution link to macos_bridge.py for Calendar, Reminders, Mail & Notifications.
+Uses the configured API client and Pydantic schemas to turn requests into actions
+handled by macos_bridge. Simple schedule queries can resolve without a text-model call.
 """
 
 import io

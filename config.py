@@ -1,8 +1,6 @@
-"""
-config.py - Persistent Configuration and State Management for macOS AI Assistant.
+"""Preferences, saved state, and launch-at-login registration for MacAssistant.
 
-Manages ~/.mac_assistant/config.json, ~/.mac_assistant/state.json,
-macOS launchd plist generation for 'Launch at Login', and the Tkinter settings GUI.
+Stores configuration under ~/.mac_assistant/ and provides the Tkinter settings window.
 """
 
 import json
@@ -331,7 +329,7 @@ def launch_settings_gui():
     base_url_var = tk.StringVar(value=cfg.openai_base_url)
     ttk.Entry(tab_api, textvariable=base_url_var, width=50).pack(anchor="w", fill="x", pady=(0, 15))
 
-    ttk.Label(tab_api, text="Text Model (Router & Slot Filler):", font=("Helvetica", 12, "bold")).pack(anchor="w", pady=(0, 2))
+    ttk.Label(tab_api, text="Text Model:", font=("Helvetica", 12, "bold")).pack(anchor="w", pady=(0, 2))
     text_model_var = tk.StringVar(value=cfg.text_model)
     text_model_combo = ttk.Combobox(
         tab_api,

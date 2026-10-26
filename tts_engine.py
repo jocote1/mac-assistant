@@ -1,11 +1,7 @@
-"""
-tts_engine.py - Local Text-to-Speech Engine with warm Kokoro-82M pipeline and macOS say fallback.
+"""Local speech synthesis and interruptible playback.
 
-Features:
-- Warm-loaded Kokoro-82M pipeline via kokoro-onnx on Apple Silicon.
-- Automatic, seamless fallback to macOS native 'say' CLI if model weights are missing.
-- In-memory playback via sounddevice with stop/interrupt support.
-- Configurable voices (e.g., af_heart, am_michael) and speech speed.
+Keeps Kokoro-82M loaded when weights are available, with macOS say as a fallback.
+Voice and playback speed come from preferences.
 """
 
 import os

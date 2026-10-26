@@ -1,9 +1,6 @@
-"""
-main.py - macOS Menu Bar AI Personal Assistant (Push-to-Talk & Background Triage Daemon).
+"""MacAssistant's menu bar app, voice recording, and scheduled checks.
 
-Entry point for the native macOS status bar app using rumps.
-Coordinates global PTT voice hotkey, audio recording, STT/LLM pipeline,
-Zero-Token Email Triage loop, and Morning Briefing / Evening Wrap-Up automations.
+Runs the push-to-talk shortcut, request processing, inbox checks, and daily briefings.
 """
 
 import os
@@ -523,7 +520,7 @@ class MacAssistantApp(rumps.App):
     # -----------------------------------------------------------------
 
     def run_morning_briefing(self):
-        """Gathers weather, calendar, reminders, and emails to produce spoken executive briefing."""
+        """Read a morning briefing from weather, calendar, reminders, and mail."""
         if not self.pipeline.is_configured():
             return
         if self.is_recording or self.is_processing:
@@ -576,7 +573,7 @@ class MacAssistantApp(rumps.App):
                 macos_bridge.display_notification(
                     "Good Morning!",
                     f"{len(events)} events today, {len(reminders)} open tasks.",
-                    subtitle="Morning Executive Briefing"
+                    subtitle="Morning briefing"
                 )
 
                 update_ui(self, status="Speaking…", background=True)
@@ -667,7 +664,7 @@ class MacAssistantApp(rumps.App):
     # -----------------------------------------------------------------
 
     def _scheduler_loop(self):
-        """Background daemon: triggers 30m email triage, morning briefing, and evening wrap-up."""
+        """Run inbox checks and daily briefings at the configured times."""
         last_triage_time = 0.0
 
         while not self._scheduler_stop.is_set():
@@ -731,7 +728,7 @@ class MacAssistantApp(rumps.App):
 def main():
     """Application Entry Point."""
     print("=" * 60)
-    print("Starting macOS AI Executive Assistant Menu Bar Application...")
+    print("Starting MacAssistant...")
     print("=" * 60)
     if "--settings" in sys.argv:
         from config import launch_settings_gui
