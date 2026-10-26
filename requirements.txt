@@ -1,0 +1,15 @@
+# macOS Menu Bar AI Executive Assistant Requirements
+openai>=3.35.1
+pydantic>=2.0.0
+rumps>=0.4.0
+pyobjc-framework-Cocoa>=10.0
+pyobjc-framework-EventKit>=10.0
+pyobjc-framework-Security>=10.0
+sounddevice>=0.4.6
+soundfile>=0.12.1
+numpy>=1.24.0
+pynput>=1.7.6
+requests>=2.28.0
+python-dateutil>=2.8.2
+kokoro-onnx>=0.3.0
+onnxruntime>=1.16.0
