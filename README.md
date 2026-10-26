@@ -6,7 +6,13 @@ Mail and calendar tasks run in the background. Asking to open an email brings up
 
 ## Install
 
-You need macOS 14 or later, Python 3 with Tkinter, and an API key for the configured models. The packaged app targets Apple Silicon (`arm64`). To check Tkinter, run `python3 -m tkinter`; it should open a test window.
+Download the ZIP from the [latest release](https://github.com/jocote1/mac-assistant/releases/latest) for an Apple Silicon Mac running macOS 14 or later. Unzip it and move `MacAssistant.app` into `~/Applications` (create the folder if needed). Open the app, then enter your own API key and mail account in Preferences / Settings. Python and the app's dependencies are included.
+
+The current download has an ad-hoc signature and is not notarized. macOS may block the first launch. If you trust the download, see [Apple's instructions for opening an unnotarized app](https://support.apple.com/en-us/102445). Managed Macs may prevent this.
+
+### Run from source
+
+You need macOS 14 or later and Python 3 with Tkinter. To check Tkinter, run `python3 -m tkinter`; it should open a test window.
 
 ```bash
 git clone https://github.com/jocote1/mac-assistant.git

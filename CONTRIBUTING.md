@@ -1,6 +1,6 @@
 # Contributing
 
-Follow the [installation instructions](README.md#install) to set up a virtual environment on macOS. The app uses Cocoa, EventKit, and Security frameworks, so native integrations need a Mac.
+Follow the [source setup instructions](README.md#run-from-source) to create a virtual environment on macOS. The app uses Cocoa, EventKit, and Security frameworks, so native integrations need a Mac.
 
 ## Code layout
 
